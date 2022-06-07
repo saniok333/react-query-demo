@@ -10,6 +10,8 @@ export const RQSuperHeroesPage = () => {
     {
       refetchOnMount: true, //default
       refetchOnWindowFocus: true, //default
+      refetchInterval: 2000,
+      refetchIntervalInBackground: true,
     }
   );
 
