@@ -5,6 +5,7 @@ import './App.css';
 import { HomePage } from './components/Home.page';
 import { RQSuperHeroesPage } from './components/RQSuperHeroes.page';
 import { SuperHeroesPage } from './components/SuperHeroes.page';
+import { RQSuperHeroPage } from './components/RQSuperHero.page';
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,10 @@ const App = () => {
             </ul>
           </nav>
           <Routes>
+            <Route
+              path="/rq-super-heroes/:heroId"
+              element={<RQSuperHeroPage />}
+            />
             <Route path="/super-heroes" element={<SuperHeroesPage />} />
             <Route path="/rq-super-heroes" element={<RQSuperHeroesPage />} />
             <Route path="/" element={<HomePage />} />

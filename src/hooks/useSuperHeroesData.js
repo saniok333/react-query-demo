@@ -7,5 +7,4 @@ export const useSuperHeroesData = ({ onSuccess, onError }) =>
   useQuery('super-heroes', fetchSuperHeroes, {
     onSuccess,
     onError,
-    select: (data) => data.data.map((hero) => hero.name),
   });
