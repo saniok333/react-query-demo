@@ -4,11 +4,20 @@ import { useQuery } from 'react-query';
 const fetchSuperHeroes = () => axios.get('http://localhost:4000/superheroes');
 
 export const RQSuperHeroesPage = () => {
+  const onSuccessHandler = (data) => {
+    console.log('Perform side effect after data fetching', data);
+  };
+
+  const onErrorHandler = (error) => {
+    console.log('Perform side effect after encountering error', error);
+  };
+
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     'super-heroes',
     fetchSuperHeroes,
     {
-      enabled: false,
+      onSuccess: onSuccessHandler,
+      onError: onErrorHandler,
     }
   );
 
