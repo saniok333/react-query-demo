@@ -1,7 +1,4 @@
-import axios from 'axios';
-import { useQuery } from 'react-query';
-
-const fetchSuperHeroes = () => axios.get('http://localhost:4000/superheroes');
+import { useSuperHeroesData } from '../hooks/useSuperHeroesData';
 
 export const RQSuperHeroesPage = () => {
   const onSuccessHandler = (data) => {
@@ -12,15 +9,11 @@ export const RQSuperHeroesPage = () => {
     console.log('Perform side effect after encountering error', error);
   };
 
-  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
-    'super-heroes',
-    fetchSuperHeroes,
-    {
+  const { isLoading, data, isError, error, isFetching, refetch } =
+    useSuperHeroesData({
       onSuccess: onSuccessHandler,
       onError: onErrorHandler,
-      select: (data) => data.data.map((hero) => hero.name),
-    }
-  );
+    });
 
   console.log({ isLoading, isFetching });
 
