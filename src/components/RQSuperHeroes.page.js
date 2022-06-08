@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 
 const fetchSuperHeroes = () => axios.get('http://localhost:4000/superheroes');
@@ -6,11 +7,15 @@ const fetchSuperHeroes = () => axios.get('http://localhost:4000/superheroes');
 export const RQSuperHeroesPage = () => {
   const onSuccessHandler = (data) => {
     console.log('Perform side effect after data fetching', data);
+    data.data.length > 3 && setRefetchIntervalValue(false);
   };
 
   const onErrorHandler = (error) => {
     console.log('Perform side effect after encountering error', error);
+    setRefetchIntervalValue(false);
   };
+
+  const [refetchIntervalValue, setRefetchIntervalValue] = useState(3000);
 
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     'super-heroes',
@@ -18,6 +23,7 @@ export const RQSuperHeroesPage = () => {
     {
       onSuccess: onSuccessHandler,
       onError: onErrorHandler,
+      refetchInterval: refetchIntervalValue,
     }
   );
 
