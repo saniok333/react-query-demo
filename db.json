@@ -3,5 +3,10 @@
     { "id": 1, "name": "Batman 3", "alterEgo": "Bruce Wayne" },
     { "id": 2, "name": "Superman", "alterEgo": "Clark Kent" },
     { "id": 3, "name": "Wonder Woman 2", "alterEgo": "Princess Diana" }
+  ],
+  "friends": [
+    { "id": 1, "name": "Chandler" },
+    { "id": 2, "name": "Joey" },
+    { "id": 3, "name": "Rachel" }
   ]
 }
