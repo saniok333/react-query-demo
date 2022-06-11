@@ -8,5 +8,17 @@
     { "id": 1, "name": "Chandler" },
     { "id": 2, "name": "Joey" },
     { "id": 3, "name": "Rachel" }
+  ],
+  "users": [
+    {
+      "id": "vishwas@example.com",
+      "channelId": "codevolution"
+    }
+  ],
+  "channels": [
+    {
+      "id": "codevolution",
+      "courses": ["react", "vue", "angular"]
+    }
   ]
 }
