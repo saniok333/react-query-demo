@@ -1,10 +1,10 @@
 import { useQuery, useMutation, useQueryClient } from 'react-query';
-import axios from 'axios';
+import { request } from '../utils/axios-utils';
 
-const fetchSuperHeroes = () => axios.get('http://localhost:4000/superheroes');
+const fetchSuperHeroes = () => request({ url: '/superheroes' });
 
 const addSuperHero = (hero) =>
-  axios.post('http://localhost:4000/superheroes', hero);
+  request({ url: '/superheroes', method: 'post', data: hero });
 
 export const useSuperHeroesData = ({ onSuccess, onError }) =>
   useQuery('super-heroes', fetchSuperHeroes, {
