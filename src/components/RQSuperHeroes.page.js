@@ -32,12 +32,20 @@ export const RQSuperHeroesPage = () => {
 
   console.log({ isLoading, isFetching });
 
-  if (isLoading || isFetching || isMutationLoading) {
+  if (isLoading || isFetching) {
     return <h2>Loading...</h2>;
   }
 
-  if (isError || isMutationError) {
-    return <h2>{error.message || mutationError.message}</h2>;
+  if (isMutationLoading) {
+    return <h2>Loading...</h2>;
+  }
+
+  if (isError) {
+    return <h2>{error.message}</h2>;
+  }
+
+  if (isMutationError) {
+    return <h2>{mutationError.message}</h2>;
   }
 
   const handleOnChangeNameInput = (e) => setName(e.target.value);
